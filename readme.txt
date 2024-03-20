@@ -2,9 +2,9 @@
   code
   rawdata
 
-2. code 폴더에 m00~m04 code들을 복사
+2. code 폴더에 m00~m04 파일들을 복사
 
-3. rawdata 폴더에 data nii 파일들을 복사
+3. rawdata 폴더에 data (*.nii) 파일들을 복사
 
 4. m00을 열어 EDIT구역 파일이름들 수정후 실행
 
