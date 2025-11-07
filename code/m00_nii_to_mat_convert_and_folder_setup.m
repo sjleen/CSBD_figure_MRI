@@ -143,15 +143,16 @@ end
 
 disp("complete: folder setup")
 
-save("../mat/data_struct.mat", "data");
+save("../mat/data_struct.mat", "data", '-v7.3');
 
 disp("complete: data structure saving")
 
 clear data;
-save("../mat/data.mat");
+save("../mat/data.mat", '-v7.3');
 
 disp("complete: data matrix saving")
 
 clear
+
 
 disp("complete code.")
