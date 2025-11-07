@@ -39,7 +39,7 @@ for i = 1:length(data)
     data_bg = isnan(current_data);
     current_data = (current_data + threshold) / (2 * threshold);
 
-    for loc = first_location_of_range:(skip+1):(last_location_of_range + ((last_location_of_range == 0) * size(current_data,3)))
+    for loc = first_location_of_range:(skip+1):min(size(current_data,3), (last_location_of_range + ((last_location_of_range == 1) * size(current_data,3))))
         img = ind2rgb(im2uint8(current_data(:,:,265-loc)), color_map);
 
         img(repmat(data_bg(:,:,265-loc), [1 1 3])) = 1;
@@ -52,3 +52,4 @@ for i = 1:length(data)
 
 
 end
+
