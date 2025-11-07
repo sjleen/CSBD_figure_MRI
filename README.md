@@ -1,5 +1,5 @@
 *Custom Colormap package를 설치해야 함  
-mathworks.com/matlabcentral/fileexchange/69470-custom-colormap
+Víctor Martínez-Cagigal (2025). Custom Colormap (https://www.mathworks.com/matlabcentral/fileexchange/69470-custom-colormap), MATLAB Central File Exchange.
 
 1. 분석진행할 디렉토리에 아래 폴더들을 생성  
   code  
