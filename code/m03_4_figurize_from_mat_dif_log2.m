@@ -84,7 +84,6 @@ for i = 1:length(data)
     scale_bar_B = color_map(:, 3);
     scale_ber = cat(3, reshape(scale_bar_R, 1, []), reshape(scale_bar_G, 1, []), reshape(scale_bar_B, 1, []));
     
-    imwrite(scale_ber, strcat(strcat("../out/out_", normalization_method, "_", timestamp, "/scalebar.", format)));
+    imwrite(scale_ber, strcat(strcat("../out/out_", normalization_method, "_", timestamp, "/scalebar__range_", string(-threshold), " - ", string(threshold), ".", format)));
 
 end
-
