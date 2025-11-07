@@ -13,7 +13,10 @@ map_rb = 0.2;
 format = 'tif';
 line_file = "line_extracted.mat";
 
+% [first_location_of_range, last_location_of_range] 안에서 first_location_of_range 부터 skip 만큼씩 건너뛰며 출력
+first_location_of_range = 80;
 skip = 15;
+last_location_of_range = 192; % 0 입력하면 그냥 끝까지
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -36,7 +39,7 @@ for i = 1:length(data)
     data_bg = isnan(current_data);
     current_data = (current_data + threshold) / (2 * threshold);
 
-    for loc = (skip+1):(skip+1):264
+    for loc = first_location_of_range:(skip+1):(last_location_of_range + ((last_location_of_range == 0) * size(current_data,3)))
         img = ind2rgb(im2uint8(current_data(:,:,265-loc)), color_map);
 
         img(repmat(data_bg(:,:,265-loc), [1 1 3])) = 1;
@@ -46,5 +49,6 @@ for i = 1:length(data)
 
         imwrite(img_out(:, 5:end-4, :), strcat(subfolder, "/", sprintf('%03d',loc),".", format));
     end
+
 
 end
