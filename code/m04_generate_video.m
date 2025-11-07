@@ -2,11 +2,13 @@ clear
 
 % EDIT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-folder = '../out/out_div_log2_20240314_162701';
+folder = '../out/out_div_log2_20251107_011034';
+frame_rate = 10;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-subfolder_list = dir(strcat(".\", folder));
+list = dir(strcat(".\", folder));
+subfolder_list = list([list.isdir]);
 
 for i = 1:length(subfolder_list)
 
@@ -17,7 +19,7 @@ for i = 1:length(subfolder_list)
     file_list = dir(strcat(".\", folder, "\", subfolder_list(i).name, "\*.tif"));
 
     writerObj = VideoWriter(strcat(".\", folder, "\", subfolder_list(i).name, "\video.avi"), 'Uncompressed AVI');
-    writerObj.FrameRate = 30;
+    writerObj.FrameRate = frame_rate;
 
     open(writerObj);
     for j = 1:length(file_list)
