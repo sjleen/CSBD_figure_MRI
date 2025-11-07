@@ -56,19 +56,19 @@ for i = 1:length(data)
     current_data = (current_data + threshold) / (2 * threshold);
 
     for loc = first_location_of_range:(skip+1):min(size(current_data,3), (last_location_of_range + ((last_location_of_range == 1) * size(current_data,3))))
-        img = ind2rgb(im2uint8(current_data(:,:,265-loc)), color_map);
+        img = ind2rgb(im2uint8(current_data(:,:,size(current_data,3)+1-loc)), color_map);
 
         img_r = img(:,:,1);
         img_g = img(:,:,2);
         img_b = img(:,:,3);
 
-        img_r(data_bg(:,:,265-loc)) = 1;
-        img_g(data_bg(:,:,265-loc)) = 1;
-        img_b(data_bg(:,:,265-loc)) = 1;
+        img_r(data_bg(:,:,size(current_data,3)+1-loc)) = 1;
+        img_g(data_bg(:,:,size(current_data,3)+1-loc)) = 1;
+        img_b(data_bg(:,:,size(current_data,3)+1-loc)) = 1;
 
-        img_r(data_line(:,:,265-loc)) = 0;
-        img_g(data_line(:,:,265-loc)) = 0;
-        img_b(data_line(:,:,265-loc)) = 0;
+        img_r(data_line(:,:,size(current_data,3)+1-loc)) = 0;
+        img_g(data_line(:,:,size(current_data,3)+1-loc)) = 0;
+        img_b(data_line(:,:,size(current_data,3)+1-loc)) = 0;
 
         img(:,:,1) = img_r;
         img(:,:,2) = img_g;
@@ -87,3 +87,4 @@ for i = 1:length(data)
     imwrite(scale_ber, strcat(strcat("../out/out_", normalization_method, "_", timestamp, "/scalebar.", format)));
 
 end
+
